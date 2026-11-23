@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Hi Thomas! · 圣诞问候</title>
+<link rel="preload" as="image" href="santa.webp">
+<style>
+*{box-sizing:border-box}body{margin:0}main{position:fixed;inset:0;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#fff0bb 0%,#efc66f 48%,#b9762f 100%)}
+.intro-snow{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.intro-snow i{position:absolute;top:-12%;left:var(--x);width:var(--size);height:var(--size);
+  background:#fff8de;border-radius:50%;filter:blur(var(--blur));opacity:var(--opacity);
+  animation:gold-snow var(--time) var(--delay) linear infinite}
+@keyframes gold-snow{from{transform:translate(0,0)}to{transform:translate(var(--drift),112svh)}}
+[hidden]{display:none!important}
+.santa{position:absolute;bottom:0;right:10%;width:min(86vw,74vh);height:96%;object-fit:contain;object-position:center bottom;animation:descend 1.4s cubic-bezier(.2,.75,.28,1) both}
+.player{position:absolute;bottom:0;left:0;width:min(63vw,69vh);animation:arrive .65s both}
+.bubble{position:absolute;display:grid;place-items:center;right:6%;top:16%;width:min(48vw,660px);min-height:1.65em;padding:.48em .3em;border-radius:48% 50% 46% 44%;background:#fff9e7;filter:drop-shadow(0 5px 9px #6e3d2526);animation:arrive .35s both;text-align:center;color:#693722;font:bold italic clamp(24px,4.2vw,67px)/1.16 Georgia,"Songti SC","SimSun",serif;white-space:pre-line}
+.bubble:before{content:"";position:absolute;left:14%;bottom:-14%;width:17%;height:30%;background:inherit;clip-path:polygon(33% 0,100% 0,0 100%)}
+.left{left:3%;right:auto;top:7%;width:min(43vw,540px)}.left:before{left:auto;right:12%;transform:scaleX(-1)}
+.ball{position:absolute;left:50%;bottom:7%;font:clamp(68px,12vmin,140px)/1 "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;margin-left:-.5em;animation:bounce 3s linear both}
+@keyframes bounce{0%{transform:translateY(-105vh);animation-timing-function:ease-in}28%,65%,86%,100%{transform:translateY(0);animation-timing-function:ease-out}46%{transform:translateY(-42vh);animation-timing-function:ease-in}76%{transform:translateY(-19vh);animation-timing-function:ease-in}93%{transform:translateY(-7vh);animation-timing-function:ease-in}}
+@keyframes descend{from{transform:translateY(-105vh)}to{transform:none}}
+@keyframes arrive{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(max-aspect-ratio:3/4){.santa{width:100%;height:79%;right:0;object-position:center center}.player{width:min(85vw,56svh)}.bubble{width:65%;top:21%;right:4%}.left{width:57%;top:8%}}
+@media(prefers-reduced-motion:reduce){.intro-snow i{animation-play-state:paused}.santa,.ball,.player,.bubble{animation:none}}
+#finale{position:absolute;inset:0;--box:min(66vw,45vh,500px);--rim:calc(6% + var(--box)*.54)}
+.player.leaving{animation:leave 1.4s ease-in both}
+@keyframes leave{to{transform:translateX(-105%);opacity:0}}
+.present{position:absolute;bottom:6%;width:var(--box);height:calc(var(--box)*.54);left:0;right:0;margin:auto;border-radius:4px 4px 12px 12px;background:linear-gradient(90deg,#af2133,#df4754 42%,#c83242 67%,#952033);box-shadow:inset 0 5px 5px #65132770,0 9px 16px #7c43183b;transform-origin:center bottom;animation:drop 1s ease-in both}
+.present:before,.lid:after{content:"";position:absolute;top:0;bottom:0;left:41%;width:18%;background:linear-gradient(90deg,#de9c32,#ffe5a2 47%,#ecc164)}
+.lid{position:absolute;top:-8%;left:-3%;width:106%;height:24%;border-radius:5px;background:linear-gradient(90deg,#bf2739,#ee5861,#ac2235);box-shadow:0 4px 5px #75273166}
+.bow{position:absolute;bottom:96%;width:25%;height:110%;border:clamp(5px,1vw,12px) solid #f5cf76;border-radius:65% 70% 10% 70%;left:27%;transform:rotate(10deg)}
+.bow+.bow{left:49%;transform:scaleX(-1) rotate(10deg)}
+@keyframes drop{from{transform:translateY(-110vh)}to{transform:translateY(0)}}
+.present.shaking{animation:shake .2s ease-in-out 10}
+@keyframes shake{25%{transform:translateX(-2%) rotate(-2deg)}75%{transform:translateX(2%) rotate(2deg)}}
+.open .lid{animation:pop .7s ease-out both}
+@keyframes pop{to{transform:translate(60%,-260%) rotate(30deg);opacity:0}}
+.chute{position:absolute;inset:0;clip-path:inset(0 0 var(--rim) 0)}
+.stitch{position:absolute;width:min(68vw,44vh);left:50%;top:50%;transform:translate(-50%,100vh)}
+.open .stitch{animation:rise 2.4s ease-out both}
+@keyframes rise{from{transform:translate(-50%,calc(44vh - var(--box)*.54))}to{transform:translate(-50%,-50%)}}
+#surprise{position:absolute;top:10%;width:100%;text-align:center;margin:0;color:#b32639;font:900 italic clamp(40px,min(13vw,12vh),110px)/1 Georgia,serif;letter-spacing:-.04em;text-shadow:2px 2px #fff2ba,4px 4px #dc993d;animation:wiggle .3s ease-in-out 10}
+@keyframes wiggle{25%{transform:rotate(-3deg) scale(1.03)}75%{transform:rotate(3deg)}}
+@media(prefers-reduced-motion:reduce){.present,.present.shaking,#surprise{animation:none}.open .stitch{animation:none;transform:translate(-50%,-50%)}}
+
+#seated{position:absolute;bottom:5%;left:50%;width:min(79vw,64vh);transform:translateX(-50%);z-index:2;pointer-events:none;transition:opacity .75s}
+#letterSpeech{z-index:3;width:min(76vw,570px);font-size:clamp(23px,4.3vw,52px)}
+#letterStage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:3vw;padding:4vw}
+#letterStage button{cursor:pointer;border:0}
+#book{width:min(53vw,44vh,440px);aspect-ratio:1170/1516;position:relative;background:#ffedc6;padding:0;perspective:1100px;border-radius:3px;box-shadow:4px 9px 15px #87390b40;animation:deliver 1.15s cubic-bezier(.18,.68,.22,1) both}
+#book img{width:100%;height:100%;position:absolute;inset:0;border-radius:3px;transform-origin:left;animation:ajar 2.1s ease-in-out infinite alternate;backface-visibility:hidden}
+#book.opened{background:transparent;box-shadow:none}
+#book.opened img{animation:none;transform:rotateY(-150deg);opacity:0;transition:transform .75s ease-in-out,opacity .65s ease-in}
+#hint{font:bold italic clamp(18px,3.4vw,45px)/1.4 Georgia,"Songti SC",serif;color:#713d25;background:transparent;padding:0;white-space:nowrap;animation:pulse 1.4s ease-in-out infinite}
+#hint.waiting{visibility:hidden}
+@keyframes deliver{from{opacity:.2;transform:translate(27vw,29vh) scale(.14) rotate(9deg)}to{opacity:1;transform:none}}
+@keyframes ajar{from{transform:rotateY(-13deg)}to{transform:rotateY(-38deg)}}
+@keyframes pulse{50%{transform:scale(1.13)}}
+@media(prefers-reduced-motion:reduce){#book,#hint,#book img{animation:none}#book img{transform:rotateY(-20deg)}}
+#tree{position:absolute;inset:0;width:100%;height:100%}
+main::before{content:"";position:absolute;inset:0;z-index:-2;opacity:0;transition:opacity .7s ease;background:radial-gradient(ellipse at 50% 46%,#533b29 0%,#30251f 51%,#191619 100%)}.treeNight::before{opacity:1}.treeNight #letterStage{z-index:1;pointer-events:none}.treeNight .intro-snow{opacity:.55}</style>
+<main><div class="intro-snow" aria-hidden="true"><i style="--x:65%;--size:5.4px;--blur:1.2px;--opacity:0.63;--time:13.5s;--delay:-12.9s;--drift:-26px"></i><i style="--x:53%;--size:20.9px;--blur:4.6px;--opacity:0.72;--time:14.8s;--delay:-8.1s;--drift:39px"></i><i style="--x:98%;--size:18.5px;--blur:4.1px;--opacity:0.60;--time:13.4s;--delay:-3.2s;--drift:24px"></i><i style="--x:12%;--size:4.6px;--blur:1.0px;--opacity:0.51;--time:11.2s;--delay:-9.1s;--drift:33px"></i><i style="--x:50%;--size:12.8px;--blur:2.8px;--opacity:0.39;--time:11.5s;--delay:-11.2s;--drift:-9px"></i><i style="--x:65%;--size:19.1px;--blur:4.2px;--opacity:0.63;--time:19.0s;--delay:-13.7s;--drift:-43px"></i><i style="--x:58%;--size:14.1px;--blur:3.1px;--opacity:0.33;--time:11.2s;--delay:-7.2s;--drift:37px"></i><i style="--x:90%;--size:14.5px;--blur:3.2px;--opacity:0.46;--time:8.3s;--delay:-3.8s;--drift:-43px"></i><i style="--x:63%;--size:11.0px;--blur:2.4px;--opacity:0.77;--time:14.4s;--delay:-6.1s;--drift:48px"></i><i style="--x:62%;--size:18.0px;--blur:4.0px;--opacity:0.48;--time:14.6s;--delay:-7.7s;--drift:54px"></i><i style="--x:61%;--size:11.4px;--blur:2.5px;--opacity:0.55;--time:18.2s;--delay:-14.6s;--drift:19px"></i><i style="--x:6%;--size:7.5px;--blur:1.6px;--opacity:0.83;--time:9.4s;--delay:-4.9s;--drift:31px"></i><i style="--x:60%;--size:5.1px;--blur:1.1px;--opacity:0.33;--time:14.8s;--delay:-13.1s;--drift:54px"></i><i style="--x:58%;--size:20.7px;--blur:4.6px;--opacity:0.65;--time:14.9s;--delay:-10.6s;--drift:15px"></i><i style="--x:39%;--size:8.0px;--blur:1.8px;--opacity:0.57;--time:12.4s;--delay:-8.0s;--drift:35px"></i><i style="--x:55%;--size:12.6px;--blur:2.8px;--opacity:0.36;--time:17.7s;--delay:-14.7s;--drift:-53px"></i><i style="--x:76%;--size:3.7px;--blur:0.8px;--opacity:0.83;--time:15.2s;--delay:-12.2s;--drift:8px"></i><i style="--x:88%;--size:10.2px;--blur:2.2px;--opacity:0.54;--time:10.2s;--delay:-5.2s;--drift:51px"></i><i style="--x:84%;--size:12.9px;--blur:2.8px;--opacity:0.79;--time:12.8s;--delay:-10.6s;--drift:-14px"></i><i style="--x:56%;--size:12.2px;--blur:2.7px;--opacity:0.66;--time:16.9s;--delay:-13.3s;--drift:11px"></i><i style="--x:23%;--size:8.2px;--blur:1.8px;--opacity:0.83;--time:18.1s;--delay:-15.3s;--drift:7px"></i><i style="--x:63%;--size:21.8px;--blur:4.8px;--opacity:0.47;--time:15.1s;--delay:-2.9s;--drift:-2px"></i><i style="--x:11%;--size:5.9px;--blur:1.3px;--opacity:0.24;--time:18.1s;--delay:-10.5s;--drift:53px"></i><i style="--x:31%;--size:4.7px;--blur:1.0px;--opacity:0.31;--time:16.7s;--delay:-0.7s;--drift:15px"></i><i style="--x:81%;--size:22.1px;--blur:4.9px;--opacity:0.46;--time:15.4s;--delay:-0.1s;--drift:31px"></i><i style="--x:62%;--size:14.7px;--blur:3.2px;--opacity:0.66;--time:16.5s;--delay:-15.4s;--drift:15px"></i><i style="--x:76%;--size:7.5px;--blur:1.6px;--opacity:0.77;--time:14.5s;--delay:-7.3s;--drift:-44px"></i><i style="--x:17%;--size:11.4px;--blur:2.5px;--opacity:0.72;--time:9.8s;--delay:-8.9s;--drift:-15px"></i><i style="--x:19%;--size:13.2px;--blur:2.9px;--opacity:0.56;--time:12.3s;--delay:-2.4s;--drift:-53px"></i><i style="--x:9%;--size:22.2px;--blur:4.9px;--opacity:0.27;--time:12.3s;--delay:-4.3s;--drift:-9px"></i><i style="--x:3%;--size:21.7px;--blur:4.8px;--opacity:0.55;--time:18.4s;--delay:-6.0s;--drift:-16px"></i><i style="--x:63%;--size:12.0px;--blur:2.6px;--opacity:0.82;--time:18.1s;--delay:-10.3s;--drift:49px"></i><i style="--x:26%;--size:6.4px;--blur:1.4px;--opacity:0.50;--time:14.5s;--delay:-4.9s;--drift:22px"></i><i style="--x:70%;--size:7.7px;--blur:1.7px;--opacity:0.48;--time:15.8s;--delay:-3.1s;--drift:-32px"></i><i style="--x:6%;--size:3.9px;--blur:0.9px;--opacity:0.52;--time:14.0s;--delay:-10.6s;--drift:-30px"></i><i style="--x:2%;--size:12.7px;--blur:2.8px;--opacity:0.32;--time:15.5s;--delay:-8.2s;--drift:46px"></i><i style="--x:17%;--size:20.7px;--blur:4.5px;--opacity:0.34;--time:17.8s;--delay:-15.1s;--drift:-5px"></i><i style="--x:10%;--size:8.5px;--blur:1.9px;--opacity:0.47;--time:13.9s;--delay:-2.6s;--drift:-32px"></i><i style="--x:99%;--size:8.3px;--blur:1.8px;--opacity:0.74;--time:13.5s;--delay:-3.9s;--drift:-32px"></i><i style="--x:15%;--size:9.5px;--blur:2.1px;--opacity:0.56;--time:13.3s;--delay:-7.0s;--drift:-19px"></i><i style="--x:29%;--size:19.3px;--blur:4.3px;--opacity:0.24;--time:17.3s;--delay:-1.6s;--drift:4px"></i><i style="--x:85%;--size:15.9px;--blur:3.5px;--opacity:0.35;--time:12.5s;--delay:-0.3s;--drift:54px"></i><i style="--x:73%;--size:6.1px;--blur:1.3px;--opacity:0.72;--time:14.2s;--delay:-3.1s;--drift:25px"></i><i style="--x:72%;--size:17.3px;--blur:3.8px;--opacity:0.69;--time:14.1s;--delay:-8.0s;--drift:18px"></i><i style="--x:12%;--size:8.4px;--blur:1.8px;--opacity:0.72;--time:14.1s;--delay:-1.4s;--drift:1px"></i><i style="--x:97%;--size:6.4px;--blur:1.4px;--opacity:0.46;--time:15.5s;--delay:-12.5s;--drift:28px"></i><i style="--x:35%;--size:15.6px;--blur:3.4px;--opacity:0.60;--time:13.6s;--delay:-0.9s;--drift:-14px"></i><i style="--x:1%;--size:6.2px;--blur:1.4px;--opacity:0.49;--time:10.8s;--delay:-9.7s;--drift:45px"></i></div><img id="santa" class="santa" src="santa.webp" alt="挥手的圣诞老人">
+<div id="ball" class="ball" hidden aria-label="篮球">🏀</div>
+<img id="james" class="player" src="player.webp" alt="身穿蓝色23号球衣的卡通詹姆斯" hidden>
+<div id="speech" class="bubble left" aria-live="polite" hidden></div><section id="finale" hidden><div class="chute"><img class="stitch" src="stitch.webp" alt="戴着圣诞帽、张开双手的史迪奇"></div>
+<div class="present" role="img" aria-label="系金色蝴蝶结的红色礼物盒"><div class="lid"><i class="bow"></i><i class="bow"></i></div></div><h1 id="surprise" hidden>SURPRISE!</h1></section><section id="letterStage" hidden><button id="book" aria-label="打开圣诞贺卡" aria-expanded="false"><img src="cover.jpg" alt="蜡笔小新圣诞贺卡封面"></button><button id="hint" class="waiting">点开看看～</button></section>
+<img id="seated" src="seated.webp" alt="戴圣诞帽、抱着手坐在地上的史迪奇" hidden>
+<div id="letterSpeech" class="bubble left" aria-live="polite" hidden></div><canvas id="tree" role="img" aria-label="暖黄雪景中旋转的圣诞树，枝头挂着彩灯、礼物盒、小新和史迪奇。便签上写着：Merry Christmas Thomas，好运与欢喜同在，希望这个圣诞的你被温暖、幸福和爱包围！" hidden></canvas></main>
+<audio src="bells.wav" autoplay loop preload="auto"></audio>
+<script src="tree.js"></script>
+<script>const music=document.querySelector('audio');music.volume=.55;function play(){if(music.paused)music.play().catch(()=>{});}play();document.addEventListener('WeixinJSBridgeReady',play);document.addEventListener('click',play);document.addEventListener('touchend',play,{passive:true});
+const santa=document.getElementById('santa'),ball=document.getElementById('ball'),james=document.getElementById('james'),speech=document.getElementById('speech');
+const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+async function dialogue(firstDuration,second,third){
+  speech.textContent='';
+  speech.hidden=false;
+  await wait(1000);
+  speech.textContent='Hi Thomas!';
+  await wait(firstDuration);
+  speech.textContent=second;
+  await wait(3000);
+  if(third){
+    speech.textContent=third;
+    await wait(2000);
+  }
+  speech.hidden=true;
+}
+async function scene(){
+  await wait(1400);
+  await dialogue(2000,'有人在找你！');
+  santa.hidden=true;
+  ball.hidden=false;
+  await wait(5000); // Three seconds of bouncing, then two seconds at rest.
+  ball.hidden=true;
+  james.hidden=false;
+  await wait(650);
+  speech.classList.remove('left');
+  await dialogue(1000,'Merry Christmas\nThomas','有一份圣诞礼物在等你。');
+  james.classList.add('leaving');
+  await wait(1400);
+  james.hidden=true;
+  const finale=document.getElementById('finale');
+  finale.hidden=false;
+  await wait(1000);
+  finale.querySelector('.present').classList.add('shaking');
+  await wait(2000);
+  finale.classList.add('open');
+  await wait(2400);
+  document.getElementById('surprise').hidden=false;
+  await wait(3000);
+  finale.hidden=true;
+  const seated=document.getElementById('seated');
+  const bubble=document.getElementById('letterSpeech');
+  seated.hidden=false;
+  await wait(500);
+  bubble.hidden=false;
+  await wait(1000);
+  bubble.textContent='我这里有你的一封信';
+  await wait(2000);
+  bubble.hidden=true;
+  document.getElementById('letterStage').hidden=false;
+  seated.style.opacity='0';
+  await wait(3000);
+  seated.hidden=true;
+  document.getElementById('hint').classList.remove('waiting');
+}
+const book=document.getElementById('book'),hint=document.getElementById('hint');
+async function openTree(){
+  if(book.disabled)return;
+  book.disabled=true;
+  hint.classList.add('waiting');
+  const cover=book.querySelector('img');
+  const currentAngle=getComputedStyle(cover).transform;
+  cover.style.transform=currentAngle;
+  canvas.closest('main').classList.add('treeNight');
+  canvas.hidden=false;
+  resize();
+  draw(performance.now());
+  book.classList.add('opened');
+  book.setAttribute('aria-expanded','true');
+  void cover.offsetWidth;
+  cover.style.removeProperty('transform');
+  await wait(reduced.matches ? 0 : 750);
+  document.getElementById('letterStage').hidden=true;
+}
+book.addEventListener('click',openTree);
+hint.addEventListener('click',openTree);
+window.addEventListener('load',scene,{once:true});
+</script></html>
